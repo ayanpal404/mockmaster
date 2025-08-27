@@ -3,7 +3,7 @@
 │
 ├── server.js                  # Entry point of the backend
 ├── config
-│   ├── db.js                  # MongoDB connection
+│   ├── db.js ✅                 # MongoDB connection
 │   ├── groq.js                # Groq API configuration
 │   └── jwt.js                 # JWT secret & options
 │

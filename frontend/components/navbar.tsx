@@ -8,18 +8,13 @@ import { useRouter } from "next/navigation"
 
 export function Navbar() {
   const { setTheme, theme } = useTheme()
-  const { user } = useAuth()
+  const { user, logout } = useAuth()
   const router = useRouter()
 
   const handleSignOut = async () => {
     try {
-      const { auth } = await import("@/lib/firebase")
-      const { signOut } = await import("firebase/auth")
-
-      if (auth) {
-        await signOut(auth)
-        router.push("/")
-      }
+      await logout()
+      router.push("/")
     } catch (error) {
       console.error("Error signing out:", error)
     }

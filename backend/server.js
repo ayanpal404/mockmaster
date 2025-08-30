@@ -9,6 +9,7 @@ const connectDB = require('./config/db');
 const errorHandler = require('./middlewares/errorHandler');
 
 const authRoutes = require('./routes/authRoutes');
+const cvRoutes = require('./routes/cvRoutes');
 
 const app = express();
 
@@ -35,6 +36,7 @@ app.get('/', (req, res) => res.send('MockMaster API ✅'));
 
 // Routes
 app.use('/api/auth', authRoutes);
+app.use('/api/cv', cvRoutes);
 
 // Error handler (keep last)
 app.use(errorHandler);

@@ -15,7 +15,7 @@ import {
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select"
 
 import {
-  Brain, Code, Users, MessageSquare, UserCheck, Calendar, Trophy, TrendingUp, CircleDot,
+  Brain, Code, Users, MessageSquare, UserCheck, Calendar, Trophy, TrendingUp, CircleDot, Upload,
 } from "lucide-react"
 import { BatteryWarning, Battery, BatteryLow , BatteryMedium, BatteryFull } from 'lucide-react';
 
@@ -101,7 +101,7 @@ export default function DashboardPage() {
       <main className="pt-24 container mx-auto px-4 pb-16">
         {/* Welcome Section */}
         <section className="mb-10 text-center">
-          <h1 className="text-4xl font-extrabold text-gray-900 dark:text-white">Welcome back, {user?.displayName || "User"} 👋</h1>
+          <h1 className="text-4xl font-extrabold text-gray-900 dark:text-white">Welcome back, {user?.name || "User"} 👋</h1>
           <p className="text-gray-600 dark:text-gray-300 mt-2">Let's sharpen your interview skills and boost your confidence!</p>
         </section>
 
@@ -130,6 +130,43 @@ export default function DashboardPage() {
                 </CardHeader>
               </Card>
             ))}
+          </div>
+        </section>
+
+        {/* CV Management Section */}
+        <section className="mb-14">
+          <h2 className="text-2xl font-semibold text-gray-800 dark:text-white mb-6 flex items-center gap-2">
+            <Brain className="h-6 w-6" /> CV Management
+          </h2>
+          <div className="grid gap-6 md:grid-cols-2">
+            <Card
+              className="cursor-pointer bg-white/60 dark:bg-gray-800/70 backdrop-blur-sm border border-gray-200 dark:border-gray-700 hover:shadow-xl transition-shadow"
+              onClick={() => router.push('/cv-manager')}
+            >
+              <CardHeader>
+                <div className="flex items-center gap-4">
+                  <div className="h-12 w-12 flex items-center justify-center rounded-full bg-green-500">
+                    <Upload className="h-6 w-6 text-white" />
+                  </div>
+                  <div>
+                    <CardTitle className="text-xl mt-2">CV Manager</CardTitle>
+                    <CardDescription>Upload, parse, and search CVs with AI</CardDescription>
+                  </div>
+                </div>
+              </CardHeader>
+            </Card>
+            
+            <Card className="bg-gradient-to-r from-green-50 to-blue-50 dark:from-green-900/20 dark:to-blue-900/20 border border-green-200 dark:border-green-700">
+              <CardHeader>
+                <CardTitle className="text-lg text-green-800 dark:text-green-200">AI-Powered CV Processing</CardTitle>
+                <CardDescription className="text-green-700 dark:text-green-300">
+                  • Upload PDF/DOC files<br/>
+                  • Extract text automatically<br/>
+                  • Generate AI embeddings<br/>
+                  • Semantic search capabilities
+                </CardDescription>
+              </CardHeader>
+            </Card>
           </div>
         </section>
 
